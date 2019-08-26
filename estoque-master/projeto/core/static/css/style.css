@@ -3,11 +3,11 @@ body {
 }
 
 .ok {
-  color: green;
+  color:LimeGreen ;
 }
 
 .no {
-  color: red;
+  color:Silver;
 }
 
 span.required:after {
