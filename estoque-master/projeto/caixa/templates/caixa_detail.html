@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href="{% url 'caixa:caixa_list' %}">Voltar</a>
+
+<h1>{{ object }}
+  <span class="pull-right">
+    <a href="{% url 'caixa:caixa_edit' object.pk %}">
+      <button type="button" class="btn btn-success">
+        <span class="fa fa-pencil"></span> Editar
+      </button>
+    </a>
+  </span>
+</h1>
+
+<div class="col-sm-6">
+  <table class="table table-user-information">
+    <tbody>
+      <tr>
+        <th class="text-right">Funcionario</th>
+        <td>
+          {% if object.funcionario %}
+            <i class="fa fa-check-circle ok"></i>
+          {% else %}
+            <i class="fa fa-minus-circle no"></i>
+          {% endif %}
+        </td>
+      </tr>
+      <tr>
+        <th class="text-right">Salario</th>
+        <td>{{ object.salario }}</td>
+      </tr>
+      <tr>
+        <th class="text-right">Hora extra</th>
+        <td>R$ {{ object.horaextra }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endblock content %}
