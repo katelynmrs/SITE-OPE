@@ -75,7 +75,7 @@ def estoque_add(request, template_name, movimento, url):
         )
         if form.is_valid() and formset.is_valid():
             form = form.save(commit=False)
-            #form.funcionario = request.user
+            form.funcionario = request.user
             form.movimento = movimento
             form.save()
             formset.save()

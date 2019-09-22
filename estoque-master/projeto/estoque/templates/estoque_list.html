@@ -19,7 +19,7 @@
         <th>Item</th>
         <th>NF</th>
         <th>Data</th>
-        <!--<th>Funcionário</th>-->
+        <th>Funcionário</th>
       </tr>
     </thead>
     <tbody>
@@ -30,7 +30,7 @@
           </td>
           <td>{{ object.nf_formated }}</td>
           <td>{{ object.created }}</td>
-          <td>{{ object.funcionario.first_name }}</td>
+          <td>{{ object.funcionario }}</td>
         </tr>
       {% endfor %}
     </tbody>

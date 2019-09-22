@@ -17,7 +17,6 @@ class Estoque(TimeStampedModel):
     movimento = models.CharField(max_length=1, choices=MOVIMENTO, blank=True)
 
     class Meta:
-        #pegando por ordem decrescente
         ordering = ('-created',)
 
     def __str__(self):
