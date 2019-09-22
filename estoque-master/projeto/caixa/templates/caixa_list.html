@@ -2,21 +2,12 @@
 
 {% block content %}
 
-<div class="row">
-  <div class="col-sm-6">
-    <form action="." method="GET" class="form-inline">
-      <input type="text" id="search" name="search" class="form-control" placeholder="Busca">
-      <input type="submit" class="btn btn-primary" style="margin-left: 10px;" value="OK">
-    </form>
-  </div>
-</div>
-
 <div class="page-header">
-  <h2>Lista de Funcionarios
+  <h2>Lista de Funcionários
     <span class="pull-right">
       <a href="{% url 'caixa:caixa_add' %}">
         <button type="button" class="btn btn-primary">
-          <span class="fa fa-plus"></span> Adicionar
+          <span class="fa fa-plus"></span> Cadastrar
         </button>
       </a>
     </span>
@@ -27,36 +18,22 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Funcionario</th>
-          <th>Salario</th>
-          <th>Hora extra</th>
-          <th class="text-center">Funcionario</th>
-          <th class="text-center">Salario</th>
+          <th class="text-center">Nome</th>
+          <th class="text-center">Salário</th>
+          <th class="text-center">Hora extra</th>
         </tr>
       </thead>
       <tbody>
         {% for object in object_list %}
-          <tr>
-            <td>
-              {% if object.funcionario %}
-                <i class="fa fa-check-circle ok"></i>
-              {% else %}
-                <i class="fa fa-minus-circle no"></i>
-              {% endif %}
-            </td>
-            <td>{{ object.salario }}</td>
-            <td>
-              <a href="{{ object.get_absolute_url }}">{{ object.caixa }}</a>
-            </td>
-            <td>R$ <span class="pull-right">{{ object.horaextra }}</span></td>
-            <td class="text-center">{{ object.caixa }}</td>
-            <td class="text-center">{{ object.salario }}</td>
+            <td class="text-center"> <a href="{{ object.get_absolute_url }}">{{ object.nome }}</a></td>
+            <td class="text-center">R$ {{ object.salario }}</span></td>
+            <td class="text-center">{{ object.horaextra}}</td>
           </tr>
         {% endfor %}
       </tbody>
     </table>
   {% else %}
-    <p class="alert alert-warning">Sem itens na lista.</p>
+    <p class="alert alert-warning">Sem funcionários cadastrados.</p>
   {% endif %}
 
 </div>

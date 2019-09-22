@@ -2,14 +2,6 @@
 
 {% block content %}
 
-<div class="row">
-  <div class="col-sm-6">
-    <form action="." method="GET" class="form-inline">
-      <input type="text" id="search" name="search" class="form-control" placeholder="Pesquisar produto">
-      <input type="submit" class="btn btn-primary" style="margin-left: 5px;" value="OK">
-    </form>
-  </div>
-</div> <br>
 
 <div class="page-header">
   <h2>Lista de Produtos
@@ -39,7 +31,7 @@
       <tbody>
         {% for object in object_list %}
           <tr>
-            <td class="text-center" >
+            <td>
               {% if object.importado %}
                 <i class="fa fa-check-circle ok"></i>
               {% else %}

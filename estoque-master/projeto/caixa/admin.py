@@ -6,9 +6,8 @@ from .models import Caixa
 class CaixaAdmin(admin.ModelAdmin):
     list_display = (
         '__str__',
-        'funcionario',
         'salario',
         'horaextra',
     )
-    search_fields = ('caixa',)
-    list_filter = ('funcionario',)
+    search_fields = ('nome',)
+    list_filter = ('nome',)

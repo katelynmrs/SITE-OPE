@@ -8,9 +8,11 @@ from .forms import CaixaForm
 def caixa_list(request):
     template_name = 'caixa_list.html'
     objects = Caixa.objects.all()
+    '''
     search = request.GET.get('search')
     if search:
         objects = objects.filter(caixa__icontains=search)
+    '''
     context = {'object_list': objects}
     return render(request, template_name, context)
 
@@ -46,7 +48,6 @@ class CaixaUpdate(UpdateView):
 
 
 def caixa_json(request, pk):
-    ''' Retorna o produto, id e estoque. '''
     caixa = Caixa.objects.filter(pk=pk)
-    data = [funcionario.to_dict_json() for funcionario in caixa]
+    data = [nome.to_dict_json() for nome in caixa]
     return JsonResponse({'data': data})
