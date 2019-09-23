@@ -47,6 +47,11 @@ INSTALLED_APPS = [
     'projeto.produto',
     'projeto.estoque',
     'projeto.caixa',
+    'projeto.departamentos',
+    'projeto.documentos',
+    'projeto.empresa',
+    'projeto.funcionarios',
+    'projeto.registro_hora_extra',
 ]
 
 MIDDLEWARE = [
