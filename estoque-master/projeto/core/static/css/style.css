@@ -1,10 +1,13 @@
 body {
   margin-top: 60px;
 }
-
+.centro {
+  text-align: center;
+}
 .ok {
   color:LimeGreen ;
 }
+
 
 .no {
   color:Silver;
