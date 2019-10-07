@@ -4,7 +4,11 @@
 
 <div class="jumbotron centro">
   <div class="container">
-    <h1>Bem-vindo!</h1>
+    {% if user.is_authenticated %}
+      <h1>Bem-vindo {{ user }}!</h1>
+    {% else %}
+      <h1>Bem-vindo!</h1>
+    {% endif %}
     <p> Sistema de controle de estoque Titans de Ouro.</p>
     <p>
       <a href="https://www.facebook.com/pages/Lanchonete-Titans-De-Ouro/940758169306920"> Veja Titans de Ouro no Facebook!</a>

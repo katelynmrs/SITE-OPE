@@ -3,8 +3,9 @@ from django.shortcuts import render
 from django.views.generic import CreateView, UpdateView, ListView
 from .models import Produto
 from .forms import ProdutoForm
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def produto_list(request):
     template_name = 'produto_list.html'
     objects = Produto.objects.all()
@@ -28,11 +29,17 @@ def produto_detail(request, pk):
     return render(request, template_name, context)
 
 
-def produto_add(request):
+def produto_add(request, pk):
     template_name = 'produto_form.html'
     return render(request, template_name)
-
-
+'''
+def deleta_produto(request, pk):
+    produto =  Produto.objects.get(pk=pk)
+    if request.method == 'POST':
+        produto.delete()
+        return redirect(produto_list)
+'''
+        
 class ProdutoCreate(CreateView):
     model = Produto
     template_name = 'produto_form.html'

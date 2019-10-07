@@ -8,6 +8,7 @@ from .models import Estoque, EstoqueEntrada, EstoqueSaida, EstoqueItens
 from .forms import EstoqueForm, EstoqueItensForm
 
 
+@login_required
 def estoque_entrada_list(request):
     template_name = 'estoque_list.html'
     objects = EstoqueEntrada.objects.all()
@@ -30,6 +31,7 @@ class EstoqueEntradaList(ListView):
         return context
 
 
+@login_required
 def estoque_entrada_detail(request, pk):
     template_name = 'estoque_detail.html'
     obj = EstoqueEntrada.objects.get(pk=pk)
@@ -52,9 +54,9 @@ def dar_baixa_estoque(form):
         produto = Produto.objects.get(pk=item.produto.pk)
         produto.estoque = item.saldo
         produto.save()
-    print('Estoque atualizado com sucesso.')
 
 
+@login_required
 def estoque_add(request, template_name, movimento, url):
     estoque_form = Estoque()
     item_estoque_formset = inlineformset_factory(
@@ -99,6 +101,7 @@ def estoque_entrada_add(request):
     return render(request, template_name, context)
 
 
+@login_required
 def estoque_saida_list(request):
     template_name = 'estoque_list.html'
     objects = EstoqueSaida.objects.all()

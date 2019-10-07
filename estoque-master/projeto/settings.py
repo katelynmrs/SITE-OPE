@@ -136,5 +136,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-LOGIN_URL = '/admin/login/'
-LOGOUT_REDIRECT_URL = 'core:index'
+LOGIN_URL = 'login' #mudado
+LOGIN_REDIRECT_URL = 'core:index'#mudado
+LOGOUT_REDIRECT_URL = 'core:index'#mudado

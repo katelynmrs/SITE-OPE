@@ -32,6 +32,12 @@
               <a href="{% url 'logout' %}" class="nav-link">Sair</a>
             </li>
           </ul>
+        {% else %}
+        <ul class="navbar-nav h5 ">
+            <li class="nav-item text-nowrap">
+                <a href="{% url 'login' %}" class="nav-link">Entrar</a>
+            </li>
+        </ul>
         {% endif %}
     </div>
 </nav>

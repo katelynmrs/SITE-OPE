@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- novo-->
+{% if form.errors %}
+<p>Tente novamente por favor</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Você está logado</p>
+    {% else %}
+    <p>Você precisa estar logado para acessar essa página.</p>
+    {% endif %}
+{% endif %}
+<form method="POST" action="{% url 'login' %}">
+{% csrf_token %}
+    <table>
+        <tr>
+            <td>{{ form.username.label_tg }}</td>
+            <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.password.label_tg }}</td>
+            <td>{{ form.password }}</td>
+        </tr>
+    </table>
+    <input type="submit" value="login">
+    <input type="hidden" name="next" value = "{{ next }}">
+</form>
+<p><a href="">Este link está com problemas</a></p>
+{% endblock %}

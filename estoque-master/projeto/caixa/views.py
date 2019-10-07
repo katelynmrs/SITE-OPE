@@ -3,8 +3,9 @@ from django.shortcuts import render
 from django.views.generic import CreateView, UpdateView, ListView
 from .models import Caixa
 from .forms import CaixaForm
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def caixa_list(request):
     template_name = 'caixa_list.html'
     objects = Caixa.objects.all()

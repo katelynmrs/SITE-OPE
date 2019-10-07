@@ -6,7 +6,7 @@ app_name = 'caixa'
 
 
 urlpatterns = [
-    path('', v.CaixaList.as_view(), name='caixa_list'),
+    path('', v.caixa_list, name='caixa_list'),
     path('<int:pk>/', v.caixa_detail, name='caixa_detail'),
     path('add/', v.CaixaCreate.as_view(), name='caixa_add'),
     path('<int:pk>/edit/', v.CaixaUpdate.as_view(), name='caixa_edit'),
